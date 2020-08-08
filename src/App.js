@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 
+import Weather from './components/Weather';
+
 // Used to hide environmental variables within code
 require('dotenv').config();
 
@@ -26,13 +28,14 @@ class App extends React.Component {
       })
     ))
     .catch(e => console.error(e.message));
-    console.log(this.state.list[0].main)
+    // console.log(this.state.list[0].main)
   }
   
   render() {
     return (
       <div className="App">
         <h1>Hello</h1>
+        <Weather info={this.state.info} list={this.state.list} />
       </div>
     )
   }
